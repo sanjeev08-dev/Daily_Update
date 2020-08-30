@@ -1,4 +1,4 @@
-package com.example.dailyupdate.Activities
+package com.example.dailyupdate.activities
 
 import android.content.Context
 import android.content.Intent
@@ -9,16 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dailyupdate.R
-import com.example.dailyupdate.Utilities.Constants
-import com.example.dailyupdate.Utilities.CountryCode
+import com.example.dailyupdate.utilities.Constants
+import com.example.dailyupdate.utilities.CountryCode
 import com.skydoves.powerspinner.IconSpinnerAdapter
 import com.skydoves.powerspinner.IconSpinnerItem
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
-    var countryCode: String = ""
-    var theme = ""
-    lateinit var sharedPreferences: SharedPreferences
+    private var countryCode: String = ""
+    private var theme = ""
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences = getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE)
@@ -51,7 +51,7 @@ class SettingsActivity : AppCompatActivity() {
             )
         )
 
-        countrySpinner.setOnSpinnerItemSelectedListener<String> { index, text ->
+        countrySpinner.setOnSpinnerItemSelectedListener<String> { _, text ->
             countryCode = CountryCode.getCountryCode(text).toString()
         }
         //
@@ -63,7 +63,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         //
-        themeSpinner.setOnSpinnerItemSelectedListener<IconSpinnerItem> { index, item ->
+        themeSpinner.setOnSpinnerItemSelectedListener<IconSpinnerItem> { _, item ->
             theme = item.text as String
         }
 
@@ -72,10 +72,10 @@ class SettingsActivity : AppCompatActivity() {
             finish()
         }
         saveSettings.setOnClickListener {
-            if (!(countrySpinner.selectedIndex < 0)) {
+            if (countrySpinner.selectedIndex >= 0) {
                 editor.apply { putString(Constants.COUNTRY_CODE, countryCode) }
             }
-            if (!(themeSpinner.selectedIndex < 0)) {
+            if (themeSpinner.selectedIndex >= 0) {
                 editor.apply { putString(Constants.COLOR_CODE, theme) }
             }
             if (countrySpinner.selectedIndex < 0 && themeSpinner.selectedIndex < 0) {

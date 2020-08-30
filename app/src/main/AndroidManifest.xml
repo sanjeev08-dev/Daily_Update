@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/OrangeTheme">
-        <activity android:name=".Activities.DetailedNewsActivity"></activity>
-        <activity android:name=".Activities.SettingsActivity" />
-        <activity android:name=".Activities.NewsActivity" />
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".activities.DetailedNewsActivity"></activity>
+        <activity android:name=".activities.SettingsActivity" />
+        <activity android:name=".activities.NewsActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.dailyupdate.Api
+package com.example.dailyupdate.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,7 +10,6 @@ object NewsApiService {
             .baseUrl("https://newsapi.org/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val service = retrofit.create(NewsApi::class.java)
-        return service
+        return retrofit.create(NewsApi::class.java)
     }
 }

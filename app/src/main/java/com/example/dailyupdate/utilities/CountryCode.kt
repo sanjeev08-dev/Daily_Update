@@ -1,4 +1,4 @@
-package com.example.dailyupdate.Utilities
+package com.example.dailyupdate.utilities
 
 import java.util.*
 

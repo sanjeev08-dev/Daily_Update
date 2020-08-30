@@ -1,4 +1,4 @@
-package com.example.dailyupdate.Adapter
+package com.example.dailyupdate.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,18 +8,18 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dailyupdate.Activities.DetailedNewsActivity
-import com.example.dailyupdate.Data.Article
+import com.example.dailyupdate.activities.DetailedNewsActivity
+import com.example.dailyupdate.data.Article
 import com.example.dailyupdate.R
-import com.example.dailyupdate.Utilities.Constants
+import com.example.dailyupdate.utilities.Constants
 import kotlinx.android.synthetic.main.news_recyclerview.view.*
 
-class NewsAdapter(val newsData: List<Article>, val mContext: Context, val colorTheme: String?) :
+class NewsAdapter(private val newsData: List<Article>, private val mContext: Context, private val colorTheme: String?) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val newsPic = view.imageNews
-        val newsHeading = view.textnewsHeading
-        val readDetailedNews = view.readMore
+        val newsPic = view.imageNews!!
+        val newsHeading = view.textnewsHeading!!
+        val readDetailedNews = view.readMore!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

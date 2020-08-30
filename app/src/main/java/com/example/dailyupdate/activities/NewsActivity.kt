@@ -1,4 +1,4 @@
-package com.example.dailyupdate.Activities
+package com.example.dailyupdate.activities
 
 import android.content.Context
 import android.content.Intent
@@ -10,12 +10,12 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dailyupdate.Adapter.NewsAdapter
-import com.example.dailyupdate.Api.NewsApiService
-import com.example.dailyupdate.Data.Article
-import com.example.dailyupdate.Data.NewsArticles
+import com.example.dailyupdate.adapter.NewsAdapter
+import com.example.dailyupdate.api.NewsApiService
+import com.example.dailyupdate.data.Article
+import com.example.dailyupdate.data.NewsArticles
 import com.example.dailyupdate.R
-import com.example.dailyupdate.Utilities.Constants
+import com.example.dailyupdate.utilities.Constants
 import kotlinx.android.synthetic.main.activity_news.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,9 +23,9 @@ import retrofit2.Response
 
 
 class NewsActivity : AppCompatActivity(), Callback<NewsArticles> {
-    var code: String? = null
-    val newsData = ArrayList<Article>()
-    lateinit var sharedPreferences: SharedPreferences
+    private var code: String? = null
+    private val newsData = ArrayList<Article>()
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         sharedPreferences = getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE)
         super.onCreate(savedInstanceState)
@@ -38,12 +38,16 @@ class NewsActivity : AppCompatActivity(), Callback<NewsArticles> {
         setSupportActionBar(toolbar)
         supportActionBar?.setTitle(R.string.app_name)
         getCurrentPositionTypeNews(bottomNavigationView.currentActiveItemPosition)
-        bottomNavigationView.setNavigationChangeListener { view, position ->
+        bottomNavigationView.setNavigationChangeListener { _, position ->
             getCurrentPositionTypeNews(position)
         }
 
         recyclerViewNews.layoutManager = LinearLayoutManager(this)
-        recyclerViewNews.adapter = NewsAdapter(newsData, applicationContext,sharedPreferences.getString(Constants.COLOR_CODE, null))
+        recyclerViewNews.adapter = NewsAdapter(
+            newsData,
+            applicationContext,
+            sharedPreferences.getString(Constants.COLOR_CODE, null)
+        )
 
         swipeRefreshLayout.setOnRefreshListener {
             getCurrentPositionTypeNews(bottomNavigationView.currentActiveItemPosition)
@@ -65,7 +69,7 @@ class NewsActivity : AppCompatActivity(), Callback<NewsArticles> {
     }
 
     override fun onFailure(call: Call<NewsArticles>, t: Throwable) {
-        Log.e("Error", t.localizedMessage)
+        Log.e("Error", t.message!!)
     }
 
     override fun onResponse(call: Call<NewsArticles>, response: Response<NewsArticles>) {

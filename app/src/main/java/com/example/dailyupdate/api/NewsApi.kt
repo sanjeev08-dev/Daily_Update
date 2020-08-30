@@ -1,6 +1,6 @@
-package com.example.dailyupdate.Api
+package com.example.dailyupdate.api
 
-import com.example.dailyupdate.Data.NewsArticles
+import com.example.dailyupdate.data.NewsArticles
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

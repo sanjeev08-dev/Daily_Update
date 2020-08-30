@@ -1,4 +1,4 @@
-package com.example.dailyupdate.Data
+package com.example.dailyupdate.data
 
 data class Source(
     val id: String,
