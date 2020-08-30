@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".Activities.NewsActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/bottomNavigationView">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewNews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/navigationbgorange"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_3sdp">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/businessItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/dividerColor"
+            app:bt_colorInactive="@android:color/white"
+            app:bt_icon="@drawable/ic_business"
+            app:bt_padding="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:bt_shape="@drawable/menuitembg"
+            app:bt_title="Business"
+            app:bt_titlePadding="5dp"
+            android:layout_weight="1"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/entertainmentItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="false"
+            app:bt_colorActive="@color/dividerColor"
+            app:bt_colorInactive="@android:color/white"
+            app:bt_icon="@drawable/ic_entertainment"
+            app:bt_padding="@dimen/_5sdp"
+            app:bt_shape="@drawable/menuitembg"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:bt_title="Entertainment"
+            app:bt_titlePadding="5dp"
+            android:layout_weight="1"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/healthItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="false"
+            app:bt_colorActive="@color/dividerColor"
+            app:bt_colorInactive="@android:color/white"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:bt_icon="@drawable/ic_health"
+            app:bt_padding="@dimen/_5sdp"
+            app:bt_shape="@drawable/menuitembg"
+            app:bt_title="Health"
+            app:bt_titlePadding="5dp"
+            android:layout_weight="1"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/scienceItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="false"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:bt_colorActive="@color/dividerColor"
+            app:bt_colorInactive="@android:color/white"
+            app:bt_icon="@drawable/ic_science"
+            app:bt_padding="@dimen/_5sdp"
+            app:bt_title="Science"
+            app:bt_shape="@drawable/menuitembg"
+            app:bt_titlePadding="5dp"
+            android:layout_weight="1"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/sportsItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="false"
+            app:bt_colorActive="@color/dividerColor"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:bt_colorInactive="@android:color/white"
+            app:bt_icon="@drawable/ic_sports"
+            app:bt_shape="@drawable/menuitembg"
+            app:bt_padding="@dimen/_5sdp"
+            app:bt_title="Sports"
+            app:bt_titlePadding="5dp"
+            android:layout_weight="1"/>
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/technologyItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="false"
+            app:bt_colorActive="@color/colorPrimary"
+            app:bt_shape="@drawable/menuitembg"
+            app:bt_colorInactive="@android:color/white"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:bt_icon="@drawable/ic_technology"
+            app:bt_padding="@dimen/_5sdp"
+            app:bt_title="Technology"
+            app:bt_titlePadding="5dp"
+            android:layout_weight="1"/>
+
+    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+</RelativeLayout>

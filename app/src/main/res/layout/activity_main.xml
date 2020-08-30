@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splashbg"
+    tools:context=".Activities.MainActivity">
+
+    <ImageView
+        android:id="@+id/circleImage"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_marginStart="-100dp"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:alpha="0"
+        android:src="@drawable/circlebg" />
+
+    <TextView
+        android:id="@+id/textCountyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:text="@string/select_your_country"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_20ssp" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/countryCard"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textCountyTitle"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="@dimen/_15sdp"
+        android:backgroundTint="@android:color/white">
+
+        <com.skydoves.powerspinner.PowerSpinnerView
+            android:id="@+id/countrySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center"
+            android:hint="@string/country"
+            android:padding="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14.5sp"
+            android:textColorHint="@color/dividerColor"
+            app:spinner_arrow_tint="@color/colorPrimary"
+            app:spinner_arrow_gravity="end"
+            app:spinner_arrow_padding="8dp"
+            app:spinner_divider_color="@color/dividerColor"
+            app:spinner_divider_show="true"
+            app:spinner_divider_size="@dimen/_1sdp"
+            app:spinner_popup_animation="dropdown"
+            app:spinner_popup_background="@android:color/white"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:spinner_item_array="@array/country"
+            app:spinner_popup_height="@dimen/_250sdp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/continue1"
+        android:drawableEnd="@drawable/ic_continue"
+        android:textColor="@android:color/white"
+        android:paddingHorizontal="@dimen/_10sdp"
+        app:cornerRadius="@dimen/_15sdp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/developer_rights"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:fontFamily="@font/ubuntu_regular"/>
+
+
+</RelativeLayout>

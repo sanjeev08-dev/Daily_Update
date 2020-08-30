@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@android:color/white"
+        app:cardElevation="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/imageNews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/errorimage"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:id="@+id/textnewsHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/ubuntu_bold"
+                android:padding="5dp"/>
+
+            <LinearLayout
+                android:id="@+id/readMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/read_details"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_continue"
+                    android:layout_gravity="bottom"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

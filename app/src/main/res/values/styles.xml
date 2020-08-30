@@ -1,0 +1,33 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="OrangeTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="GreenTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">#26FF00</item>
+        <item name="colorPrimaryDark">#4CAF50</item>
+        <item name="colorAccent">#99FFBB</item>
+    </style>
+
+    <style name="RedTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">#B80000</item>
+        <item name="colorAccent">#FF85AF</item>
+    </style>
+
+    <style name="YellowTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">#E6DA00</item>
+        <item name="colorAccent">#FFE491</item>
+    </style>
+
+    <style name="BlueTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">#0011A8</item>
+        <item name="colorAccent">#9CABFF</item>
+    </style>
+
+</resources>

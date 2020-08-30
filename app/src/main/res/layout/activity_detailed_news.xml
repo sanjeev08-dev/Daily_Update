@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".Activities.DetailedNewsActivity">
+
+    <ImageView
+        android:id="@+id/backImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        app:tint="@android:color/black"
+        android:padding="@dimen/_10sdp"
+        android:contentDescription="@string/back" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backImage"
+        android:layout_margin="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_15sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/newsImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/imagetint"
+                android:src="@drawable/circlebg"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/news_image" />
+
+            <TextView
+                android:id="@+id/newsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_your_country"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/ubuntu_bold"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_above="@id/newsPublished"/>
+            <TextView
+                android:id="@+id/newsPublished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_your_country"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/_8sdp"
+                android:layout_alignBottom="@id/newsImage"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"/>
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/authorName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardView"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/ubuntu_bold"
+        android:layout_margin="@dimen/_10sdp"
+        android:textSize="@dimen/_15ssp"/>
+    <TextView
+        android:id="@+id/newsDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authorName"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@android:color/black"
+        android:layout_marginHorizontal="@dimen/_10sdp"/>
+    <TextView
+        android:id="@+id/url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/newsDescription"
+        android:textColor="@android:color/holo_blue_dark"
+        android:fontFamily="@font/ubuntu_regular"
+        android:visibility="gone"/>
+
+</RelativeLayout>
