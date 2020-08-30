@@ -2,6 +2,7 @@ package com.example.dailyupdate.Activities
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,12 +18,14 @@ import kotlinx.android.synthetic.main.activity_settings.*
 class SettingsActivity : AppCompatActivity() {
     var countryCode: String = ""
     var theme = ""
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        setThemeActivity(sharedPreferences.getString(Constants.COLOR_CODE, null))
         setContentView(R.layout.activity_settings)
+        setElementsColor(sharedPreferences.getString(Constants.COLOR_CODE, null))
 
-        val sharedPreferences =
-            getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         val colors = arrayListOf(
@@ -82,5 +85,71 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(Intent(this, NewsActivity::class.java))
             finish()
         }
+    }
+
+    private fun setElementsColor(color: String?) {
+        when (color) {
+            Constants.RED -> {
+                appbar.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.red))
+                saveSettings.backgroundTintList = ContextCompat.getColorStateList(applicationContext,R.color.red)
+            }
+            Constants.ORANGE -> {
+                appbar.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
+                saveSettings.backgroundTintList = ContextCompat.getColorStateList(applicationContext,R.color.colorPrimary)
+            }
+            Constants.BLUE -> {
+                appbar.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.blue))
+                saveSettings.backgroundTintList = ContextCompat.getColorStateList(applicationContext,R.color.blue)
+            }
+            Constants.GREEN -> {
+                appbar.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.green
+                    )
+                )
+                saveSettings.backgroundTintList = ContextCompat.getColorStateList(applicationContext,R.color.green)
+            }
+            Constants.YELLOW -> {
+                appbar.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorAccent
+                    )
+                )
+                saveSettings.backgroundTintList = ContextCompat.getColorStateList(applicationContext,R.color.colorAccent)
+            }
+            null -> {
+                appbar.setBackgroundColor(
+                    ContextCompat.getColor(
+                        applicationContext,
+                        R.color.colorPrimary
+                    )
+                )
+                saveSettings.backgroundTintList = ContextCompat.getColorStateList(applicationContext,R.color.colorPrimary)
+            }
+        }
+    }
+
+    private fun setThemeActivity(color: String?) {
+        when (color) {
+            Constants.RED -> setTheme(R.style.RedTheme)
+            Constants.ORANGE -> setTheme(R.style.OrangeTheme)
+            Constants.BLUE -> setTheme(R.style.BlueTheme)
+            Constants.GREEN -> setTheme(R.style.GreenTheme)
+            Constants.YELLOW -> setTheme(R.style.YellowTheme)
+            null -> setTheme(R.style.OrangeTheme)
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this, NewsActivity::class.java))
+        finish()
     }
 }
