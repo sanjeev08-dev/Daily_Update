@@ -23,7 +23,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/errorimage"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name" />
             <TextView
                 android:id="@+id/textnewsHeading"
                 android:layout_width="match_parent"
